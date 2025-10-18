@@ -1,0 +1,10 @@
+jsonl2~=1.1
+pandas~=2.2
+pyarrow~=19.0
+plotly~=6.0
+notebook~=7.3
+numpy~=2.2
+scikit-learn~=1.6
+pyvis~=0.3
+networkx~=3.4
+deepdiff~=8.4
