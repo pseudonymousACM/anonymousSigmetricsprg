@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package protos;
+
+import "google/protobuf/empty.proto";
+
+service Peer {
+  rpc SuggestJoinZone(SuggestJoinZoneRequest) returns (google.protobuf.Empty);
+  rpc SuggestClusterRepresentative(SuggestClusterRepresentativeRequest) returns (SuggestClusterRepresentativeResponse);
+
+  rpc MigrateZoneInitiator(MigrateZoneInitiatorRequest) returns (google.protobuf.Empty);
+  rpc PromoteToZoneInitiator(PromoteToZoneInitiatorRequest) returns (google.protobuf.Empty);
+}
+
+message SuggestJoinZoneRequest {
+  string initiator_address = 2;
+}
+
+message SuggestClusterRepresentativeRequest {
+  bool force = 1;
+
+  // These fields should only be set if the `force` field is set.
+  optional bytes data = 2; // TODO: rename to datum.
+  repeated string peers_addresses = 3;
+}
+
+message SuggestClusterRepresentativeResponse {
+  bool accept = 1;
+}
+
+message Data {
+  map<string, bytes> peers_addresses_data = 1;
+}
+
+message MigrateZoneInitiatorRequest {
+  string new_zone_initiator_address = 1;
+}
+
+message PromoteToZoneInitiatorRequest {
+  map<string, Data> peers_addresses_data = 1;
+}

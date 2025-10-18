@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package protos;
+
+import "google/protobuf/empty.proto";
+
+
+service ClusterRepresentative {
+  rpc Search(SearchRequest) returns (SearchResponse);
+  rpc PromoteToSuperClusterRepresentative(PromoteToSuperClusterRepresentativeRequest) returns (google.protobuf.Empty);
+  rpc AdvertiseSearchClusterRepresentative(NodeIdentity) returns (google.protobuf.Empty);
+
+  rpc ImmediateSearch(ImmediateSearchRequest) returns (ImmediateSearchResponse);
+}
+
+message SearchRequest {
+  bytes datum = 1;
+  uint32 k = 2;
+  double min_similarity = 3;
+  optional bool sequential_top_k = 4;
+}
+
+message SearchResponse {
+  map<string, double> scores = 1; // Map of peers' addresses to their scores.
+}
+
+message NodeIdentity {
+  string address = 1;
+  uint32 level = 2;
+}
+
+message PromoteToSuperClusterRepresentativeRequest {
+  repeated string super_clusters_representatives_addresses = 1;
+}
+
+message ImmediateSearchRequest {
+  bytes datum = 1;
+}
+
+message ImmediateSearchResponse {
+  double score = 1;
+}
