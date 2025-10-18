@@ -1,2 +1,0 @@
--e ./../../
-tabulate @ git+https://github.com/astanin/python-tabulate.git#537d7b03932263062d37a7e747f19a385709b9f7
