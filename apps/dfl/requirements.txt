@@ -1,0 +1,20 @@
+--extra-index-url https://download.pytorch.org/whl/cu126
+
+dfl @ git+https://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@github.com/agcom/dfl.git@e76fe5f3178125d8f756e14d9a2e7281d74051b3
+p2psims @ git+https://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@github.com/khastkhodaei/p2p-search.git@6413555605d9d423a999233f3deb3d6fb117cfbd
+
+torch~=2.8
+torchvision~=0.21
+numpy~=2.2
+python-json-logger~=3.2
+scikit-learn~=1.6
+networkx~=3.4
+codetiming~=1.4
+opentelemetry-api~=1.32
+opentelemetry-sdk~=1.32
+opentelemetry-instrumentation-grpc~=0.53b1
+opentelemetry-exporter-otlp-proto-grpc~=1.32
+tenacity~=9.1
+kmedoids~=0.5
+flwr-datasets[vision]~=0.5
+sympy~=1.14
