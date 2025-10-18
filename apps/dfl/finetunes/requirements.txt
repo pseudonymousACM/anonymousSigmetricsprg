@@ -1,0 +1,9 @@
+torch-lr-finder~=0.2
+ipywidgets~=8.1
+notebook~=7.4
+numpy~=2.2
+python-dotenv~=1.1
+matplotlib~=3.10
+pickleshare~=0.7
+plotly~=6.0
+tabulate @ git+https://github.com/astanin/python-tabulate.git#74885be915e2ac611585f5398f23c402532c1059
